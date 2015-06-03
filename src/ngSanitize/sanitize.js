@@ -302,7 +302,7 @@ function htmlParser(html, handler) {
           chars = false;
         }
       // DOCTYPE
-      } else if (DOCTYPE_REGEXP.test(html)) {
+      } else if (!!html.match(DOCTYPE_REGEXP)) {
         match = html.match(DOCTYPE_REGEXP);
 
         if (match) {
@@ -310,7 +310,7 @@ function htmlParser(html, handler) {
           chars = false;
         }
       // end tag
-      } else if (BEGING_END_TAGE_REGEXP.test(html)) {
+      } else if (!!html.match(BEGING_END_TAGE_REGEXP)) {
         match = html.match(END_TAG_REGEXP);
 
         if (match) {
@@ -320,7 +320,7 @@ function htmlParser(html, handler) {
         }
 
       // start tag
-      } else if (BEGIN_TAG_REGEXP.test(html)) {
+      } else if (!!html.match(BEGIN_TAG_REGEXP)) {
         match = html.match(START_TAG_REGEXP);
 
         if (match) {
